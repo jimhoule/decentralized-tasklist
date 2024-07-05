@@ -1,0 +1,1 @@
+Creation and interaction with a tasklist deployed on the Ethereum blockchain. The frontend is a React application, Backend is made of microservices and each uses DDD with a 4-Layered Architecture (Presentation, Application, Domain, Infrastructure).

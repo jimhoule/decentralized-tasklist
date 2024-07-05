@@ -1,0 +1,7 @@
+- Install Solidity Compiler with npm i -g solc (the command to use the executable is solcjs)
+- Download and install Geth package for windows at https://geth.ethereum.org/downloads to use 
+  abigen (add Geth folder path to PATH Environment Variables)
+
+COMMANDS:
+    - Generate bin and abi: solcjs --bin --abi <path to solidity contract (.sol file) goes here> -o <path to output folder goes here>
+    - Generate binding go file: abigen --abi ./tasklist.abi --bin ./tasklist.bin --pkg tasklist --out ./tasklist.go

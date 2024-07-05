@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  gateway:
+    depends_on:
+      - tasklists
+      - wallets
+    build:
+      context: ./gateway
+      dockerfile: ./gateway/gateway.dockerfile
+    ports:
+      - 3000:80
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+    env_file: ./gateway/.env
+
+  tasklists:
+    build:
+      context: ./tasklists
+      dockerfile: ./tasklists/tasklists.dockerfile
+    ports:
+      - 3001:80
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+    env_file: ./tasklists/.env
+
+  wallets:
+    build:
+      context: ./wallets
+      dockerfile: ./wallets/wallets.dockerfile
+    ports:
+      - 3002:80
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+    env_file: ./wallets/.env

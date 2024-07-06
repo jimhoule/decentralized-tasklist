@@ -1,8 +1,8 @@
 package models
 
 type Task struct {
-	Id          string
-	Name        string
-	Description string
-	IsDone      bool
+	Id          string `json:"id"`
+	Name        string `json:"name"`
+	Description string `json:"description,omitempty"`
+	IsDone      bool   `json:"isDone"`
 }

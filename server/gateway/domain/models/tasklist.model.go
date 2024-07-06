@@ -1,8 +1,8 @@
 package models
 
 type Tasklist struct {
-	Name        string
-	Description string
-	Email       string
-	Tasks       []*Task
+	Name        string  `json:"name"`
+	Description string  `json:"description"`
+	Email       string  `json:"email"`
+	Tasks       []*Task `json:"tasks,omitempty"`
 }

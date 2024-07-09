@@ -1,5 +1,23 @@
 export function WalletsPage(): JSX.Element {
     return (
-        <h1>Wallets!!!</h1>
+        <div
+            className={`
+                w-full
+                h-full
+                flex
+                items-center
+                justify-center
+            `}
+        >
+            <p
+                className={`
+                    text-white
+                    text-6xl
+                    font-bold
+                `}
+            >
+                Coming soon!
+            </p>
+        </div>
     );
 }

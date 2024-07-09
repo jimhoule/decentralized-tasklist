@@ -5,11 +5,17 @@ type GetTasklistForm = {
     privateKey: string;
 };
 
+const initialGetTasklistFrom = {
+    address: '',
+    privateKey: ''
+}
+
 export function useGetTasklistForm() {
-    const [ getTasklistForm, setGetTasklistForm ] = useState<GetTasklistForm>({
-        address: '',
-        privateKey: ''
-    });
+    const [ getTasklistForm, setGetTasklistForm ] = useState<GetTasklistForm>(initialGetTasklistFrom);
+
+    function resetGetTasklistForm(): void {
+        setGetTasklistForm(initialGetTasklistFrom);
+    }
 
     function handleGetTasklistAddressInputChange(event: ChangeEvent<HTMLInputElement>): void {
         setGetTasklistForm({
@@ -27,6 +33,7 @@ export function useGetTasklistForm() {
 
     return {
         getTasklistForm,
+        resetGetTasklistForm,
         handleGetTasklistAddressInputChange,
         handleGetTasklistPrivateKeyInputChange,
     };

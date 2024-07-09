@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react';
-import { TextFormInput } from './TextFormInput';
+import { TextFormInput } from '../TextFormInput';
 
 type Props = {
     addressInputValue: string;
@@ -23,7 +23,7 @@ export function GetTasklistForm(
             `}
         >
             <TextFormInput
-                placeholder='Encoded public address'
+                placeholder='Encoded contract address'
                 value={addressInputValue}
                 onChange={onAddressInputChange}
             />

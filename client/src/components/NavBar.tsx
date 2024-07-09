@@ -1,4 +1,5 @@
 import { NavLink } from './NavLink';
+import ethPng from '../assets/eth.png';
 
 export function NavBar(): JSX.Element {
     return (
@@ -15,15 +16,15 @@ export function NavBar(): JSX.Element {
                 className={`
                     flex
                     items-center
-                    mr-3
+                    mr-10
                 `}
             >
                 <img 
                     className={`
-                        h-8 
+                        h-12 
                         w-auto
                     `}
-                    src='../assets/eth.png'
+                    src={ethPng}
                     alt='eth'
                 />
             </div>

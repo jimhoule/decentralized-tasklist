@@ -4,14 +4,22 @@ type CreateTasklistForm = {
     name: string;
     description: string;
     email: string;
+    privateKey: string;
 };
 
+const initialCreateTasklistForm = {
+    name: '',
+    description: '',
+    email: '',
+    privateKey: ''
+}
+
 export function useCreateTasklistForm() {
-    const [ createTasklistForm, setCreateTasklistForm ] = useState<CreateTasklistForm>({
-        name: '',
-        description: '',
-        email: ''
-    });
+    const [ createTasklistForm, setCreateTasklistForm ] = useState<CreateTasklistForm>(initialCreateTasklistForm);
+
+    function resetCreateTasklistForm(): void {
+        setCreateTasklistForm(initialCreateTasklistForm);
+    }
 
     function handleCreateTasklistNameInputChange(event: ChangeEvent<HTMLInputElement>): void {
         setCreateTasklistForm({
@@ -34,10 +42,19 @@ export function useCreateTasklistForm() {
         });
     }
 
+    function handleCreateTasklistPrivateKeyInputChange(event: ChangeEvent<HTMLInputElement>): void {
+        setCreateTasklistForm({
+            ...createTasklistForm,
+            privateKey: event.currentTarget.value
+        });
+    }
+
     return {
         createTasklistForm,
+        resetCreateTasklistForm,
         handleCreateTasklistNameInputChange,
         handleCreateTasklistDescriptionInputChange,
-        handleCreateTasklistEmailInputChange
+        handleCreateTasklistEmailInputChange,
+        handleCreateTasklistPrivateKeyInputChange
     };
 }

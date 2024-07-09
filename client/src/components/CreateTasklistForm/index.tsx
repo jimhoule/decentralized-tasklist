@@ -1,13 +1,15 @@
 import { ChangeEvent } from 'react';
-import { TextFormInput } from './TextFormInput';
+import { TextFormInput } from '../TextFormInput';
 
 type Props = {
     nameInputValue: string;
     descriptionInputValue: string;
     emailInputValue: string;
+    privateKeyInputValue: string;
     onNameInputChange(event: ChangeEvent<HTMLInputElement>): void;
     onDescriptionInputChange(event: ChangeEvent<HTMLInputElement>): void;
     onEmailInputChange(event: ChangeEvent<HTMLInputElement>): void;
+    onPrivateKeyInputChange(event: ChangeEvent<HTMLInputElement>): void;
 };
 
 export function CreateTasklistForm(
@@ -15,9 +17,11 @@ export function CreateTasklistForm(
         nameInputValue,
         descriptionInputValue,
         emailInputValue,
+        privateKeyInputValue,
         onNameInputChange,
         onDescriptionInputChange,
-        onEmailInputChange
+        onEmailInputChange,
+        onPrivateKeyInputChange
     }: Props
 ): JSX.Element {
     return (
@@ -42,6 +46,12 @@ export function CreateTasklistForm(
                 placeholder='Email'
                 value={emailInputValue}
                 onChange={onEmailInputChange}
+            />
+
+            <TextFormInput
+                placeholder='Private Key'
+                value={privateKeyInputValue}
+                onChange={onPrivateKeyInputChange}
             />
         </div>
     );

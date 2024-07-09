@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, Suspense } from 'react';
 
 type Props = {
     children: ReactNode;
@@ -23,28 +23,51 @@ export function Modal(
 ): JSX.Element {
     return (
         <div 
-                className={`
-                    absolute 
-                    z-1000
-                    top-1/2
-                    left-1/2
-                    transform
-                    -translate-x-1/2
-                    -translate-y-1/2
-                    container
-                    w-screen
-                    h-screen
-                    bg-green-500
-                    ${isVisible ? 'ease-out duration-300 opacity-100' : 'ease-in duration-200 opacity-0'}
-                `}
+            className={`
+                container
+                absolute 
+                z-1000
+                top-1/2
+                left-1/2
+                transform
+                -translate-x-1/2
+                -translate-y-1/2
+                w-1/2
+                h-screen
+                bg-gray-900
+                opacity-90
+                ${isVisible ? 'ease-out duration-300 top-1/2' : 'ease-in duration-200 top-[-100%]'}
+            `}
+        >
+            <Suspense
+                    fallback={<div>Loading....</div>}
             >
-                <div className="absolute z-1000 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 pb-4 pt-5 bg-blue-600 w-1/2">
-                    <div className="mt-3 text-center bg-red-400">
+                <div 
+                    className={`
+                        absolute
+                        z-1000
+                        top-1/2
+                        left-1/2
+                        transform
+                        -translate-x-1/2
+                        -translate-y-1/2
+                        px-4
+                        pb-4
+                        pt-5
+                        bg-white
+                        w-1/2"
+                    `}
+                >
+                    <div
+                        className={`
+                            mt-3
+                            text-center
+                            bg-white
+                        `}
+                    >
                         <h3
                             className={`
-                                text-base
-                                font-semibold
-                                leading-6
+                                font-bold
                                 text-gray-900
                             `}
                         >
@@ -61,22 +84,23 @@ export function Modal(
                     </div>
 
 
-                    <div className="bg-gray-50 px-4 py-3 bg-green">
+                    <div
+                        className={`
+                            mt-5
+                            flex
+                            justify-around
+                        `}
+                    >
                         <button
-                            type='button'
                             className={`
-                                inline-flex
-                                w-1/2
-                                justify-center
+                                w-[40%]
                                 rounded-md
-                                bg-red-600
-                                px-3
+                                bg-gray-900
                                 py-2
-                                text-sm
                                 font-semibold
                                 text-white
-                                shadow-sm
-                                hover:bg-red-500
+                                hover:bg-gray-600
+                                focus:bg-gray-600
                             `}
                             onClick={onSubmit}
                         >
@@ -84,23 +108,15 @@ export function Modal(
                         </button>
 
                         <button
-                            type='button'
                             className={`
-                                mt-3
-                                inline-flex
-                                w-1/2
-                                justify-center
+                                w-[40%]
                                 rounded-md
-                                bg-white
-                                px-3
+                                bg-gray-900
                                 py-2
-                                text-sm
                                 font-semibold
-                                text-gray-900
-                                shadow-sm ring-1
-                                ring-inset
-                                ring-gray-300
-                                hover:bg-gray-50
+                                text-white
+                                hover:bg-gray-600
+                                focus:bg-gray-600
                             `}
                             onClick={onCancel}
                         >
@@ -108,6 +124,7 @@ export function Modal(
                         </button>
                     </div>
                 </div>
-            </div>
+            </Suspense>
+        </div>
     );
 }

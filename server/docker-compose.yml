@@ -7,9 +7,9 @@ services:
       - wallets
     build:
       context: ./gateway
-      dockerfile: ./gateway/gateway.dockerfile
+      dockerfile: ./gateway.dockerfile
     ports:
-      - 3000:80
+      - 5000:3000
     restart: always
     deploy:
       mode: replicated
@@ -19,9 +19,9 @@ services:
   tasklists:
     build:
       context: ./tasklists
-      dockerfile: ./tasklists/tasklists.dockerfile
-    ports:
-      - 3001:80
+      dockerfile: ./tasklists.dockerfile
+    expose:
+      - 3001
     restart: always
     deploy:
       mode: replicated
@@ -31,9 +31,9 @@ services:
   wallets:
     build:
       context: ./wallets
-      dockerfile: ./wallets/wallets.dockerfile
-    ports:
-      - 3002:80
+      dockerfile: ./wallets.dockerfile
+    expose:
+      - 3002
     restart: always
     deploy:
       mode: replicated

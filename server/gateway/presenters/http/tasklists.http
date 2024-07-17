@@ -1,0 +1,36 @@
+### NOTE: To use this file VSC REST Client extension must be installed 
+
+### Finds a Tasklists
+GET http://localhost:3000/tasklists/<address>/<key>
+
+### Creates a Tasklists
+POST http://localhost:3000/tasklists/<key>
+Content-Type: application/json
+{
+    "name": "Tasklist name",
+    "description": "Tasklist description",
+    "email": "dummy@dummy.com"
+}
+
+### Finds a Task
+GET http://localhost:3000/tasklists/tasks/<id>/<address>/<key>
+
+### Adds a Task
+POST http://localhost:3000/tasklists/tasks/<address>/<key>
+Content-Type: application/json
+{
+    "name": "Task name",
+    "description": "Tas description"
+}
+
+### Updates a Task
+PUT http://localhost:3000/tasklists/tasks/<id>/<address>/<key>
+Content-Type: application/json
+{
+    "name": "Task name",
+    "description": "Task description",
+    "isDone": true
+}
+
+### Deletes a Task
+DELETE http://localhost:3000/tasklists/tasks/<id>/<address>/<key>

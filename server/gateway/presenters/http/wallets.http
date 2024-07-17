@@ -1,0 +1,5 @@
+### NOTE: To use this file VSC REST Client extension must be installed 
+
+### Creates a Wallets
+POST http://localhost:3000/wallets
+Content-Type: application/json
